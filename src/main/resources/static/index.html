@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html ng-app="dataSourceApp">
+<head>
+    <title>Data Source UI</title>    
+    <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/ext/font-mfizz-2.3.0/font-mfizz.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/w2ui/w2ui-1.4.3.css" />
+    <link rel="stylesheet" type="text/css" href="bower_components/metisMenu/dist/metisMenu.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/metisMenu/dist/prism.min.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/metisMenu/dist/metisFolder.css">
+    <link rel="stylesheet" type="text/css" href="lib/css/simple-sidebar.css">
+    <link rel="stylesheet" type="text/css" href="lib/css/customPlumb.css">
+    <link rel="stylesheet" type="text/css" href="lib/css/bottomPanel.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap-select/dist/css/bootstrap-select.css" />
+    <link rel="stylesheet" type="text/css" href="bower_components/jQuery-QueryBuilder/dist/css/query-builder.default.css"/>    
+    <link rel="stylesheet" type="text/css" href="bower_components/jQuery-contextMenu/dist/jquery.contextMenu.css"/>    
+    
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>  
+    <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="bower_components/jquery-ui/ui/position.js"></script>
+
+    <!-- JS -->
+    <!-- support lib for bezier stuff -->
+    <script src="lib/js/plugin/jsBezier-0.8.js"></script>
+    <!-- event adapter -->
+    <script src="lib/js/plugin/mottle-0.7.2.js"></script>
+    <!-- geometry functions -->
+    <script src="lib/js/plugin/biltong-0.3.js"></script>
+    <!-- drag -->
+    <script src="lib/js/plugin/katavorio-0.17.0.js"></script>
+    <!-- jsplumb util -->
+    <script src="bower_components/jsPlumb/src/util.js"></script>
+    <script src="bower_components/jsPlumb/src/browser-util.js"></script>
+
+    <!-- main jsplumb -->
+    <script src="bower_components/jsPlumb/dist/js/jsPlumb-2.1.4.js"></script>
+    <!-- base DOM adapter -->
+        <script src="bower_components/jsPlumb/src/dom-adapter.js"></script>
+    <script src="bower_components/jsPlumb/src/overlay-component.js"></script>
+    <!-- endpoint -->
+    <script src="bower_components/jsPlumb/src/endpoint.js"></script>
+    <!-- connection -->
+    <script src="bower_components/jsPlumb/src/connection.js"></script>
+    <!-- anchors -->
+    <script src="bower_components/jsPlumb/src/anchors.js"></script>
+    <!-- connectors, endpoint and overlays  -->
+    <script src="bower_components/jsPlumb/src/defaults.js"></script>
+    <!-- bezier connectors -->
+    <script src="bower_components/jsPlumb/src/connectors-bezier.js"></script>
+    <!-- state machine connectors -->
+    <script src="bower_components/jsPlumb/src/connectors-statemachine.js"></script>
+    <!-- flowchart connectors -->
+    <script src="bower_components/jsPlumb/src/connectors-flowchart.js"></script>
+    <!-- SVG renderer -->
+    <script src="bower_components/jsPlumb/src/renderers-svg.js"></script>
+    <!-- common adapter -->
+    <script src="bower_components/jsPlumb/src/base-library-adapter.js"></script>
+    <!-- no library jsPlumb adapter -->
+    <!--<script src="bower_components/jsPlumb/src/dom.jsPlumb.js"></script>-->
+    <script src="bower_components/jsPlumb/src/bezier-editor.js"></script>
+
+    <!-- query builder -->
+    <script src="bower_components/jQuery-QueryBuilder/dist/js/query-builder.standalone.js"></script>
+    
+    <script type="text/javascript" src="bower_components/w2ui/w2ui-1.4.3.min.js"></script>
+    <script type="text/javascript" src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/jQuery-contextMenu/dist/jquery.contextMenu.js"></script>
+    <script src="bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
+    <script src="bower_components/mockjs/dist/mock.js"></script> 
+    <script src="bower_components/bootbox.js/bootbox.js"></script> 
+         
+    <!-- /JS -->
+
+</head>
+<body>   
+    <!-- layout panel  --> 
+    <div id="layout" style="width: 100%; position:absolute; top:0;left:0;height:100%"></div>
+
+    <!-- Modal connect-->
+    <div id="modalConnect" class="modal fade modal-primary" role="dialog">
+      <div class="modal-dialog modal-primary">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          
+          <div class="modal-header modal-primary">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><i class="fa fa-database"></i> Connect to Server</h4>
+             </div>
+                <div class="modal-body">
+                     <div class="form-group">
+                        <label for="driver"><i class="fa fa-gears"></i> Driver Class:</label>
+                            <select id="driver" name="driver" class="form-control selectpicker"
+                            title="Choose the suitable Database Driver.">                            
+                                <option value="MySQL" data-icon="icon-mysql">MySQL</option>
+                                <option value="SQLServer" data-icon="icon-mssql">SQL Server</option>
+                                <option value="PostgreSQL" data-icon="icon-postgres">PostgreSQL</option>                    
+                                <option value="Oracle" data-icon="icon-oracle-alt">Oracle</option>
+                            </select>
+                    </div>
+                         <div class="form-group">
+                            <label for="connectinString"><i class="fa fa-hashtag"></i> Connection String:</label>
+                                <input type="url" class="form-control" name="connectionString" id="connectionString" placeholder="write down your connection string ..." />
+                        </div>
+                        <div class="form-group">
+                            <label for="userName"><i class="fa fa-user"></i> User Name:</label>
+                                <input type="text" class="form-control" name="userName" id="userName" placeholder="Type your name .." />
+                        </div>
+                        <div class="form-group">
+                            <label for="password"><i class="fa fa-lock"></i> Password:</label>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Type your password ..." />                          
+                        </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-success" role="button"><i class="fa fa-plug" title="connect"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end modal connect -->
+
+    <!-- Modal export-->
+    <div id="modalExport" class="modal fade modal-primary" role="dialog">
+      <div class="modal-dialog modal-primary">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          
+          <div class="modal-header modal-primary">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><i class="fa fa-database"></i> Export Settings</h4>
+             </div>
+                <div class="modal-body">
+                     <div class="form-group">
+                        <label for="dsName"><i class="fa fa-database"></i> Data Source Name:</label>
+                            <input type="text" 
+                            id="dsName" 
+                            name="dsName" 
+                            placeholder="Your data source name ..."
+                            class="form-control" />                                
+                    </div>
+                         <div class="form-group">
+                            <label for="dsDescription">                                
+                                <i class="fa fa-comment-o"></i> Data Source Description:</label>
+                                <textarea class="form-control" 
+                                name="dsDescription" 
+                                id="dsDescription"
+                                placeholder="Describe your data source here ..."
+                                ></textarea>
+                        </div>                        
+                        <div class="form-group">
+                            <label for="assign"><i class="fa fa-map-signs"></i> Assign to module:</label>
+                            <select id="assign" name="assign" class="form-control selectpicker" multiple title="Choose modules to be assigned .." data-selected-text-format="count > 5">                                
+                                <option value="Custom Rule">Custom Rule</option>
+                                <option value="Query Tools">Query Tools</option>                                
+                            </select>                          
+                        </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-success" role="button"><i class="fa fa-upload" title="Export"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end modal export -->
+
+    <!-- modal groupingNordering  -->
+    <!-- Modal -->
+    <div id="modalSortNGroup" class="modal fade modal-primary" role="dialog">
+      <div class="modal-dialog modal-primary">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          
+          <div class="modal-header modal-primary">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><i class="fa fa-Slider"></i> Grouping and Ordering Fields</h4>
+             </div>
+                <div class="modal-body">
+                     <div id="treeViewColumn">                        
+                     </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-success" role="button"><i class="fa fa-floppy-o" title="Save Changes"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal groupingNordering  -->
+    <!-- Modal -->
+    <div id="modalJoinProperties" class="modal fade modal-md" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          
+          <div class="modal-header modal-primary">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><i class="fa fa-chain"></i> Relation Properties</h4>
+             </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="joinType"><i class="fa fa-gears"></i> Join Type:</label>
+                            <select id="joinType" name="driver" class="form-control selectpicker" data-icon-base="fa"
+                            title="Select the join type">                            
+                                <option value="Left" data-icon="fa-arrow-left">Left Join</option>
+                                <option value="Right" data-icon="fa-arrow-right">Right Join</option>
+                                <option value="Inner" data-icon="fa-dot-circle-o">Inner Join</option>                    
+                                <option value="Outter" data-icon="fa-circle-o">Outter Join</option>
+                            </select>                            
+                    </div>                                         
+                    <form class="form-inline">
+                        <div class="row">
+                            <div class="col-md-5 form-group">
+                                <label for="sourceKey"><i class="fa fa-key"></i> Source Key:</label>
+                                <select name="sourceKey" class="form-control selectpicker"
+                                title="Select the source key"></select>                                
+                            </div>                            
+                            <div class="col-md-5 form-group pull-right">                            
+                                <label for="targetKey"><i class="fa fa-key"></i> Target Key:</label>
+                                <select name="targetKey" class="form-control selectpicker"
+                                title="Select the target key"></select>                                                        
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5 form-group">                                
+                                <select name="sourceKey" class="form-control selectpicker"
+                                title="Select the source key"></select>
+                            </div>                                                        
+                            <div class="col-md-5 form-group pull-right">              
+                                <select name="targetKey" class="form-control selectpicker"
+                                title="Select the target key"></select>                                                        
+                            </div>                            
+                        </div>
+                    </form>                    
+                </div>                
+                <div class="modal-footer">                    
+                    <a class="btn btn-info tip" 
+                        title="Add Keys" 
+                        role="button">
+                        <i class="fa fa-key fa-plus"></i>
+                    </a>    
+                    <a class="btn btn-danger tip btnUnlink" 
+                        title="Remove Relation" 
+                        role="button">
+                        <i class="fa fa-unlink"></i>
+                    </a>
+                    <a class="btn btn-success tip btnSaveChanges" 
+                        title="Save Changes" 
+                        role="button">
+                        <i class="fa fa-link"></i>
+                    </a>
+
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="lib/js/app.js"></script>
+    <script src="lib/js/dragAndDropDBStructure.js"></script>
+    <script src="lib/js/watcher.js"></script>
+</body>
+</html>

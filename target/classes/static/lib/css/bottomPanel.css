@@ -1,0 +1,18 @@
+#filterQueryPanel{
+	position: absolute;
+	bottom: 0;
+	right:0;
+	width:100%;	
+	background-color:white;
+	z-index:-888;
+}
+.sqlView{
+	background-color: #F5F6F7;
+}
+.nav.nav-tabs{
+	background-color: #F5F6F7;
+}
+.w2ui-panel-content{
+	padding-left: 0px !important;
+	padding-top: 0px !important;
+}

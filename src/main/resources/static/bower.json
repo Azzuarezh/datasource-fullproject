@@ -1,0 +1,27 @@
+{
+  "name": "dataasourcebuilder",
+  "description": "data source builder",
+  "main": "index.html",
+  "authors": [
+    "azzuarezh"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "data",
+    "source"
+  ],
+  "homepage": "https://github.com/Azzuarezh/dataSourceBuilder",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootbox.js": "bootbox#^4.4.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "datasoucebuilder",
+  "version": "1.0.0",
+  "description": "data souce builder ",
+  "main": "index.html",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "load-grunt-tasks": "^3.5.0",
+    "time-grunt": "^1.4.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Azzuarezh/dataSourceBuilder.git"
+  },
+  "keywords": [
+    "data",
+    "source"
+  ],
+  "author": "azzuarezh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Azzuarezh/dataSourceBuilder/issues"
+  },
+  "homepage": "https://github.com/Azzuarezh/dataSourceBuilder#readme"
+}

@@ -4,11 +4,13 @@
     <title>Data Source UI</title>    
     <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/ext/font-mfizz-2.3.0/font-mfizz.css">
-    <link rel="stylesheet" type="text/css" href="bower_components/w2ui/w2ui-1.4.3.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="bower_components/w2ui/w2ui-1.4.3.css" /> -->    
+    <link rel="stylesheet" type="text/css" href="bower_components/angular-ui-layout/src/ui-layout.css">        
     <link rel="stylesheet" type="text/css" href="bower_components/metisMenu/dist/metisMenu.css">
     <link rel="stylesheet" type="text/css" href="bower_components/metisMenu/dist/prism.min.css">
     <link rel="stylesheet" type="text/css" href="bower_components/metisMenu/dist/metisFolder.css">
-    <link rel="stylesheet" type="text/css" href="lib/css/simple-sidebar.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/eeh-navigation/dist/eeh-navigation.css">           
+    <!-- <link rel="stylesheet" type="text/css" href="lib/css/simple-sidebar.css"> -->
     <link rel="stylesheet" type="text/css" href="lib/css/customPlumb.css">
     <link rel="stylesheet" type="text/css" href="lib/css/bottomPanel.css">
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
@@ -21,6 +23,11 @@
     <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-ui-layout/src/ui-layout.js"></script>
+    <script src="bower_components/eeh-navigation/dist/eeh-navigation.js"></script>
+    <script src="bower_components/eeh-navigation/dist/eeh-navigation.tpl.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    
     
     <script src="bower_components/jquery/dist/jquery.min.js"></script>  
     <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
@@ -49,8 +56,8 @@
     <!-- connection -->
     <script src="bower_components/jsPlumb/src/connection.js"></script>
     <!-- anchors -->
-    <script src="bower_components/jsPlumb/src/anchors.js"></script>
     <!-- connectors, endpoint and overlays  -->
+    <script src="bower_components/jsPlumb/src/anchors.js"></script>
     <script src="bower_components/jsPlumb/src/defaults.js"></script>
     <!-- bezier connectors -->
     <script src="bower_components/jsPlumb/src/connectors-bezier.js"></script>
@@ -69,7 +76,7 @@
     <!-- query builder -->
     <script src="bower_components/jQuery-QueryBuilder/dist/js/query-builder.standalone.js"></script>
     
-    <script type="text/javascript" src="bower_components/w2ui/w2ui-1.4.3.min.js"></script>
+    <!-- <script type="text/javascript" src="bower_components/w2ui/w2ui-1.4.3.min.js"></script> -->
     <script type="text/javascript" src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/jQuery-contextMenu/dist/jquery.contextMenu.js"></script>
@@ -82,7 +89,20 @@
 </head>
 <body>   
     <!-- layout panel  --> 
-    <div id="layout" style="width: 100%; position:absolute; top:0;left:0;height:100%"></div>
+       <div ui-layout  >
+      <div ui-layout-container>top</div>
+     	 
+      <div ui-layout-container> 
+        <div ui-layout="{flow : 'column'}" >
+          <div ui-layout-container>
+			<left-sidebar></left-sidebar>
+			</div>
+          <div ui-layout-container="central">main</div>          
+        </div>
+      </div>
+    
+      <div ui-layout-container>bottom</div>
+    </div>
 
     <!-- Modal connect-->
     <div id="modalConnect" class="modal fade modal-primary" role="dialog">
@@ -263,8 +283,9 @@
         </div>
     </div>
 
-	<script src="lib/js/angular_controller/leftPanel_controller.js"></script>
-    <script src="lib/js/app.js"></script>        
+	
+    <script src="lib/js/app.js"></script>
+    <!-- <script src="lib/js/angular_controller/leftPanel_controller.js"></script> -->        
     <script src="lib/js/dragAndDropDBStructure.js"></script>    
 </body>
 </html>

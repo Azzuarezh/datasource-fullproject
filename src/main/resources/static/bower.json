@@ -10,7 +10,7 @@
     "data",
     "source"
   ],
-  "homepage": "https://github.com/Azzuarezh/dataSourceBuilder",
+  "homepage": "https://github.com/Azzuarezh/datasource-fullproject",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -20,6 +20,7 @@
   ],
   "dependencies": {
     "angular-bootstrap": "^2.0.1",
+    "angular-ui-layout": "git://github.com/angular-ui/ui-layout.git#^1.4.2",
     "angular-resource": "^1.5.8",
     "angular-animate": "^1.5.8",
     "angular-utils-ui-breadcrumbs": "git://github.com/michaelbromley/angularUtils-uiBreadcrumbs.git#^0.2.2",
@@ -34,6 +35,7 @@
     "metisMenu": "^2.5.2",
     "mockjs": "^1.0.0",
     "w2ui": "^1.4.3",
-    "angular": "^1.5.8"
+    "angular": "^1.5.8",
+    "eeh-navigation": "^4.4.0"
   }
 }

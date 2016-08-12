@@ -1,93 +1,26 @@
 /*
 main script application
+this is the main function of angular.
+declare the directives here
 */
-$(document).ready(function(){
 
-/*	//mocking function
-	Mock.mock(/basic_branch.json/, 
-				{
-				name:'basic_branch',
-				db:'Cronos',
-				type:'table',
-				column: ['id','branchName','city'
-					{'name':'id',type:'int','isPrimary':true, 'length': 4},
-					{'name':'branchName',type:'varchar', 'length': 50},
-					{'name':'city',type:'varchar', 'length': 4}
-				]
-		});
+	//initialize the app
+var app = angular.module('dataSourceApp',['ngAnimate','ngResource','ui.router','ui.bootstrap']);
+app.controller('modalSave', function($scope, $http) {
+    $http.get("getListOfDatabases")
+    .then(function(response) {
+        //First function handles success
+        $scope.content = response.data;
+        console.log($scope.content);
+    }, function(response) {
+        //Second function handles error
+        $scope.content = "Something went wrong";
+        console.log($scope.content);
+    });
+});
 
-Mock.mock(/basic_user.json/, 
-				{				
-				name:'basic_user',
-				db:'Cronos',
-				type:'table',
-				column: ['id','userName','password'
-					{'name':'id',type:'int','isPrimary':true, 'length': 4},
-					{'name':'userName',type:'varchar', 'length': 4},
-					{'name':'password',type:'varchar', 'length': 4}
-				]
-		});
 
-Mock.mock(/basic_city.json/, 
-				{				
-				name:'basic_city',
-				db:'Cronos',
-				type:'table',
-				column: ['id','id_country','city'
-					{'name':'id',type:'int','isPrimary':true, 'length': 4},
-					{'name':'userName',type:'varchar', 'length': 4},
-					{'name':'password',type:'varchar', 'length': 4}
-				]
-		});
-
-Mock.mock(/basic_country.json/, 
-				{				
-				name:'basic_country',
-				db:'Cronos',
-				type:'table',
-				column: ['id_country','country'
-					{'name':'id',type:'int','isPrimary':true, 'length': 4},
-					{'name':'userName',type:'varchar', 'length': 4},
-					{'name':'password',type:'varchar', 'length': 4}
-				]
-		});
-
-Mock.mock(/view_branch.json/, 
-				{
-				name:'basic_branch',
-				db:'Cronos',
-				type:'view',
-				column: ['id','branchName','city'
-					{'name':'id',type:'int','isPrimary':true, 'length': 4},
-					{'name':'branchName',type:'varchar', 'length': 50},
-					{'name':'city',type:'varchar', 'length': 4}
-				]
-		});
-
-Mock.mock(/view_user.json/, 
-				{				
-				name:'basic_user',
-				db:'Cronos',
-				type:'view',
-				column: ['id','userName','password'
-					{'name':'id',type:'int','isPrimary':true, 'length': 4},
-					{'name':'userName',type:'varchar', 'length': 4},
-					{'name':'password',type:'varchar', 'length': 4}
-				]
-		});
-
-Mock.mock(/view_user_country.json/, 
-				{				
-				name:'basic_user',
-				db:'Cronos',
-				type:'view',
-				column: ['id','userName','country'
-					{'name':'id',type:'int','isPrimary':true, 'length': 4},
-					{'name':'userName',type:'varchar', 'length': 4},
-					{'name':'password',type:'varchar', 'length': 4}
-				]
-		});
-*/
+$(document).ready(function(){	
 	//w2ui panel function
 	 var pstyle = 'background-color: #fffff; border: 2px solid #dfd0d0; padding: 5px;';
 	 var pstyle2 = 'background-color: #fffff; border: 2px solid #dfd0d0; padding: 1px;';
@@ -105,7 +38,7 @@ Mock.mock(/view_user_country.json/,
 	                        resizable: true, 
 	                        style: pstyle + 'overflow-x:hidden;', 
 	                        content: function(){
-	                            return $(this).load('panel/left.html');
+	                            return $(this).load('panel/left.tpl.html');
 	                            } 
 	                        };
 

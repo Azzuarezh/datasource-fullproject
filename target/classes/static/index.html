@@ -17,6 +17,11 @@
     <link rel="stylesheet" type="text/css" href="bower_components/jQuery-contextMenu/dist/jquery.contextMenu.css"/>    
     
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    
     <script src="bower_components/jquery/dist/jquery.min.js"></script>  
     <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
     <script src="bower_components/jquery-ui/ui/position.js"></script>
@@ -136,7 +141,7 @@
                 <div class="modal-body">
                      <div class="form-group">
                         <label for="dsName"><i class="fa fa-database"></i> Data Source Name:</label>
-                            <input type="text" 
+                            <input type="text" ng-model="dsname"
                             id="dsName" 
                             name="dsName" 
                             placeholder="Your data source name ..."
@@ -149,7 +154,7 @@
                                 name="dsDescription" 
                                 id="dsDescription"
                                 placeholder="Describe your data source here ..."
-                                ></textarea>
+                                >{{dsname}}</textarea>
                         </div>                        
                         <div class="form-group">
                             <label for="assign"><i class="fa fa-map-signs"></i> Assign to module:</label>
@@ -258,8 +263,7 @@
         </div>
     </div>
 
-    <script src="lib/js/app.js"></script>
-    <script src="lib/js/dragAndDropDBStructure.js"></script>
-    <script src="lib/js/watcher.js"></script>
+    <script src="lib/js/app.js"></script>    
+    <script src="lib/js/dragAndDropDBStructure.js"></script>    
 </body>
 </html>

@@ -1,0 +1,98 @@
+<div class="container" ng-controller="leftPanelCtrl">
+	<div class="row">		
+	<nav class="nav">
+          <ul class="metisFolder db-treeview">
+            <li data-db-name="AML_DATA">
+              <a href="#">
+                <span class="fa fa-database"></span>
+                AML_Data {{content}}
+              </a>             
+            </li>
+            <li data-db-name="Cronos">
+              <a href="#">
+                <span class="fa fa-database"></span>
+                Cronos
+              </a>
+              <ul class="db-object-treeview">
+              	<li>
+	              <a href="#">
+	                <span class="fa fa-table"></span>
+	                Tables
+	              </a>   
+	              <ul class="tbl-treeview">
+	              	<li data-table-name="Basic_Branch" data-has-dropped="false">
+			            <a href="#">
+			               <span class="fa fa-table"></span>
+			                Basic_Branch
+			              </a>             
+			         </li>
+			         <li data-table-name="Basic_City" data-has-dropped="false">
+			            <a href="#">
+			               <span class="fa fa-table"></span>
+			                Basic_City
+			              </a>             
+			         </li>
+			         <li data-table-name="Basic_Country" data-has-dropped="false">
+			            <a href="#">
+			               <span class="fa fa-table"></span>
+			                Basic_Country
+			              </a>             
+			         </li>
+		            <li data-table-name="Basic_User" data-has-dropped="false">
+		              <a href="#">
+		                <span class="fa fa-table"></span>
+		                Basic_User
+		              </a>             
+		            </li>
+	              </ul>          
+	            </li>
+	            <li>
+	              <a href="#">
+	                <span class="fa fa-eye"></span>
+	                Views
+	              </a>
+	              <ul class="view-treeview">
+	              	<li data-view-name="view_branch" data-has-dropped="false">
+			            <a href="#">
+			               <span class="fa fa-eye"></span>
+			                view_branch
+			              </a>             
+			            </li>
+			            <li data-view-name="view_user" data-has-dropped="false">
+			              <a href="#">
+			                <span class="fa fa-eye"></span>
+			                View_user
+			              </a>             
+			            </li>
+			            <li data-view-name="view_user_country" data-has-dropped="false">
+			              <a href="#">
+			                <span class="fa fa-eye"></span>
+			                View_User_Country
+			              </a>             
+			            </li>
+	              </ul>             
+	            </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#">
+                <span class="fa fa-database"></span>
+                Information_Schema
+              </a>             
+            </li>
+
+          </ul>
+        </nav>
+	</div>
+</div>
+<script>
+$(document).ready(function(){
+	//metisFolder  function
+	$('.metisFolder').metisMenu({
+        toggle: false
+      });
+	 $('[data-toggle="popover"]').popover()
+})
+</script>
+<script src="lib/js/dragAndDropDBStructure.js"></script>

@@ -18,9 +18,9 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
 	@Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/bower_components/**").addResourceLocations("classpath:static/bower_components/");        
-		registry.addResourceHandler("/lib/**").addResourceLocations("classpath:static/lib/");
-		registry.addResourceHandler("/node_modules/**").addResourceLocations("classpath:static/node_modules/");
+		registry.addResourceHandler("/bower_components/**").addResourceLocations("classpath:bower_components/");        
+		registry.addResourceHandler("/lib/**").addResourceLocations("classpath:lib/");
+		registry.addResourceHandler("/node_modules/**").addResourceLocations("classpath:node_modules/");
     }
 	
 	  @Bean

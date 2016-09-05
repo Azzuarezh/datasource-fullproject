@@ -22,24 +22,7 @@ public class CommonQuery implements CommonQueryInterface {
 		return query;
 	}
 
-	@Override
-	public String getTablesFromDb(String DBType, String DbName) {
-		// TODO Auto-generated method stub
-		switch (DBType) {
-		case LocalVariable.SQL_SERVER_DB:
-			query = String.format("select TABLE_CATALOG as 'DATABASE_NAME',TABLE_NAME from %s.INFORMATION_SCHEMA.TABLES "+
-					"union select TABLE_CATALOG as 'DATABASE_NAME',TABLE_NAME from %s.INFORMATION_SCHEMA.VIEWS "+
-					"order by TABLE_NAME asc", DbName , DbName);
-			break;
-		case LocalVariable.POSTGRESQL_DB:
-			query =String.format("select table_schema as \"DATABASE_NAME\", table_name as \"TABLE_NAME\" from information_schema.tables "+
-					"where table_schema not in('pg_catalog','information_schema') and table_schema = '%s'", DbName);			
-			break;
-		default:
-			break;
-		}
-		return query;
-	}
+	
 
 	@Override
 	public String getColumnsFromTable(String DBType, String DbName, String TblName) {
@@ -52,6 +35,26 @@ public class CommonQuery implements CommonQueryInterface {
 		case LocalVariable.POSTGRESQL_DB:
 			query = String.format("	select table_name as 'TABLE_NAME', column_name as 'COLUMN_NAME', data_type as 'DATA_TYPE' from information_schema.columns "+
 					"where table_schema ='%s' and  table_name = '%s' order by column_name asc", DbName,TblName);
+		default:
+			break;
+		}
+		return query;
+	}
+
+
+
+	@Override
+	public String getTablesFromDb(String DBType, String DbName, String ObjectType) {
+		// TODO Auto-generated method stub		
+		switch (DBType) {
+		case LocalVariable.SQL_SERVER_DB:
+			query = String.format("select TABLE_CATALOG as 'DATABASE_NAME',TABLE_NAME as OBJECT_NAME from %s.INFORMATION_SCHEMA."+ ObjectType + " " +					
+					"order by TABLE_NAME asc", DbName , DbName);
+			break;
+		case LocalVariable.POSTGRESQL_DB:
+			query =String.format("select table_schema as \"DATABASE_NAME\", TABLE_NAME as \"OBJECT_NAME\" from information_schema."+  ObjectType + " " +
+					"where table_schema not in('pg_catalog','information_schema') and table_schema = '%s' order by TABLE_NAME asc", DbName);			
+			break;
 		default:
 			break;
 		}

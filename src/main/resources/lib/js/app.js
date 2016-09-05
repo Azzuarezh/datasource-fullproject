@@ -8,6 +8,7 @@ declare the directives here
 var app = angular.module('dataSourceApp',
 			[
 			 'ngAnimate',
+			 'ngTouch',
 			 'ngResource',		 
 			 'ui.bootstrap',
 			 'ui.layout',

@@ -28,10 +28,8 @@
 <body>   
     <!-- layout panel  --> 
        <div ui-layout  >
-	      <div ui-layout-container>
-	      	<div class="container" ng-controler="topController">
-	      		<top-sidebar></top-sidebar>
-	      	</div>
+	      <div ui-layout-container>	      	
+	      		<top-sidebar ng-controller="topController"></top-sidebar>	      	
 	      </div>
      	 
 	      <div ui-layout-container> 
@@ -45,7 +43,11 @@
 	        </div>
 	      </div>
     
-      <div ui-layout-container>bottom</div>
+      <div ui-layout-container>
+      	<div class="container" ng-controller="bottomSidebarController">
+      		<bottom-sidebar></bottom-sidebar>
+      	</div>      	
+      </div>
     </div>
 
     <!-- Modal connect-->
@@ -232,6 +234,7 @@
 	<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 	<script src="bower_components/angular-ui-layout/src/ui-layout.js"></script>
 	<script src="bower_components/angular-resource/angular-resource.js"></script>
+	<script src="bower_components/angular-touch/angular-touch.js"></script>
 	<script src="bower_components/angular-animate/angular-animate.js"></script>
 	<script src="bower_components/angular-utils-ui-breadcrumbs/uiBreadcrumbs.js"></script>
 	<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>

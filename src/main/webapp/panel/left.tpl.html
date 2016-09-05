@@ -1,7 +1,37 @@
 <nav metis-menu>
  <ul>
- 	<li ng-repeat="db in listDatabase" >
- 	<a href="#"><span class="fa fa-database"></span>{{db}}</a> 	
+ 	<li ng-repeat="db in listDatabase" id="{{'li_' + db.name}}">
+ 		<a href="#" id="{{db.name}}">
+ 				<i class="fa fa-database"></i> 
+ 				&nbsp; {{db.name}}
+ 		</a> 		
+ 		<ul>
+ 			<li>
+ 				<a href="#" ng-click="expand(db.name,$event,'tables')">
+	 				<i class="fa fa-table"></i> 
+	 				&nbsp; Table
+		 		</a>
+		 		<ul>
+		 			<li ng-repeat="object in listDbObject">
+		 			<i class="fa fa-table"></i> 
+	 				&nbsp; {{object.OBJECT_NAME}}
+		 			</li>
+		 		</ul>
+ 			</li>
+ 			<li>
+ 				<a href="#" ng-click="expand(db.name,$event,'views')">
+	 				<i class="fa fa-eye"></i> 
+	 				&nbsp; View
+		 		</a>
+		 		<ul>
+		 			<li ng-repeat="object in listDbObject">
+		 			<i class="fa fa-eye"></i> 
+	 				&nbsp; {{object.OBJECT_NAME}}
+		 			</li>
+		 		</ul>
+ 			</li>
+ 		
+ 		</ul> 		 
  	</li>
  </ul>
 </nav>

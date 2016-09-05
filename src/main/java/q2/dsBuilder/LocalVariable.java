@@ -14,6 +14,9 @@ public class LocalVariable {
 	public static final String PARAM_DB_TYPE = "DB_Type";
 	public static final String PARAM_DB_NAME = "DB_Name";
 	public static final String PARAM_TBL_NAME = "TBL_Name";
+	public static final String PARAM_OBJECT_TYPE = "ObjectType";
+	public static final String PARAM_OBJECT_TABLE ="TABLE";
+	public static final String PARAM_OBJECT_VIEW ="VIEW";
 	
 
 }

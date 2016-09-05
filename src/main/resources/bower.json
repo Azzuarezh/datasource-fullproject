@@ -22,6 +22,7 @@
     "angular-bootstrap": "^2.0.1",
     "angular-ui-layout": "git://github.com/angular-ui/ui-layout.git#^1.4.2",
     "angular-resource": "^1.5.8",
+    "angular-touch":"^1.5.8",    
     "angular-animate": "^1.5.8",
     "angular-utils-ui-breadcrumbs": "git://github.com/michaelbromley/angularUtils-uiBreadcrumbs.git#^0.2.2",
     "angular-ui-router": "^0.3.1",

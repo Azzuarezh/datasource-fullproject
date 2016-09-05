@@ -50,7 +50,10 @@ public class RestControllerClass {
 	
 	
 	@RequestMapping(value="/getListOfTable")
-	public List<Map<String, Object>> getListOfTable(HttpSession session,@RequestParam(value=LocalVariable.PARAM_DB_NAME) String DbName) throws SQLException{
+	public List<Map<String, Object>> getListOfTable(
+			HttpSession session,
+			@RequestParam(value=LocalVariable.PARAM_DB_NAME) String DbName,
+			@RequestParam(value=LocalVariable.PARAM_OBJECT_TYPE) String type) throws SQLException{
 		String ServerName = "10.50.50.19";
 		String userName="";
 		String pass ="";
@@ -73,12 +76,15 @@ public class RestControllerClass {
 		}
 		
 		CoreConnection  coreConnect = new CoreConnection(ServerName, userName, pass, 0, dbType);
-		sql = cQy.getTablesFromDb(dbType, DbName);
+		System.out.println("the Db Name : " + DbName);
+		System.out.println("the database object  is : " + type);
+		
+		sql = cQy.getTablesFromDb(dbType, DbName, type);
 		System.out.println("the sql nya : " + sql);
 		return coreConnect.getQuery_Result(sql);
 	}
 	
-	
+		
 	@RequestMapping(value="/switchDBDriver")
 	public String changeDefaultDB(@RequestParam(value=LocalVariable.PARAM_DB_TYPE, required=false) String db_type,HttpSession session){
 		session.setAttribute(LocalVariable.PARAM_DB_TYPE, db_type);

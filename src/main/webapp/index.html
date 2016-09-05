@@ -29,7 +29,7 @@
     <!-- layout panel  --> 
        <div ui-layout  >
 	      <div ui-layout-container>	      	
-	      		<top-sidebar ng-controller="topController"></top-sidebar>	      	
+	      		<top-sidebar></top-sidebar>	      	
 	      </div>
      	 
 	      <div ui-layout-container> 
@@ -43,10 +43,10 @@
 	        </div>
 	      </div>
     
-      <div ui-layout-container>
-      	<div class="container" ng-controller="bottomSidebarController">
+      <div ui-layout-container>      	
+      	<div  ng-controller="bottomSidebarController">
       		<bottom-sidebar></bottom-sidebar>
-      	</div>      	
+      	</div>      		      	      
       </div>
     </div>
 
@@ -260,6 +260,7 @@
     <script src="lib/js/app.js"></script>    
     <script src="lib/js/angular_controller/TopPanel_controller.js"></script>
     <script src="lib/js/angular_controller/leftPanel_controller.js"></script>
+    <script src="lib/js/angular_controller/bottomPanel_controller.js"></script>
            
     <!-- <script src="lib/js/dragAndDropDBStructure.js"></script> -->
     <!-- post plugin -->   

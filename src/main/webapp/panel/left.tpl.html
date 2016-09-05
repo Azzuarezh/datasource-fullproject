@@ -7,27 +7,33 @@
  		</a> 		
  		<ul>
  			<li>
- 				<a href="#" ng-click="expand(db.name,$event,'tables')">
+ 				<a href="#" ng-click="expand(db.name,$event,'tables')" aria-expanded="false">
 	 				<i class="fa fa-table"></i> 
-	 				&nbsp; Table
+	 				&nbsp; Table <!-- <i ng-hide="!loading" class="fa fa-circle-o-notch fa-spin"></i> -->
 		 		</a>
 		 		<ul>
-		 			<li ng-repeat="object in listDbObject">
-		 			<i class="fa fa-table"></i> 
+ 					<li ng-if="listDbObject != null" ng-repeat="object in listDbObject">
+		 				<i class="fa fa-table"></i> 
 	 				&nbsp; {{object.OBJECT_NAME}}
+		 			</li>
+		 			<li ng-if="(listDbObject == null || listDbObject.length  == 0)">		 				
+	 					There's no table yet
 		 			</li>
 		 		</ul>
  			</li>
  			<li>
- 				<a href="#" ng-click="expand(db.name,$event,'views')">
+ 				<a href="#" ng-click="expand(db.name,$event,'views')" aria-expanded="false">
 	 				<i class="fa fa-eye"></i> 
 	 				&nbsp; View
 		 		</a>
 		 		<ul>
-		 			<li ng-repeat="object in listDbObject">
+		 			<li ng-if="listDbObject != null" ng-repeat="object in listDbObject">
 		 			<i class="fa fa-eye"></i> 
 	 				&nbsp; {{object.OBJECT_NAME}}
 		 			</li>
+		 			<li ng-if="(listDbObject == null || listDbObject.length  == 0)">		 				
+	 					There's no view yet
+		 			</li>		 			
 		 		</ul>
  			</li>
  		

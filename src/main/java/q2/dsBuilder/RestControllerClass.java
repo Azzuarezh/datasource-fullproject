@@ -15,11 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class RestControllerClass {
-	private CommonQuery cQy = new CommonQuery();	
+	private CommonQuery cQy = new CommonQuery();
+	
+	private String ServerName = "10.50.50.19"; 
 	
 	@RequestMapping(value="/getListOfDatabases")
 	public List<Map<String,Object>> getListOfDataBases(HttpSession session) throws SQLException{
-		String ServerName = "10.50.50.19";
+		
 		String userName="";
 		String pass ="";
 		String sql="";
@@ -53,8 +55,7 @@ public class RestControllerClass {
 	public List<Map<String, Object>> getListOfTable(
 			HttpSession session,
 			@RequestParam(value=LocalVariable.PARAM_DB_NAME) String DbName,
-			@RequestParam(value=LocalVariable.PARAM_OBJECT_TYPE) String type) throws SQLException{
-		String ServerName = "10.50.50.19";
+			@RequestParam(value=LocalVariable.PARAM_OBJECT_TYPE) String type) throws SQLException{		
 		String userName="";
 		String pass ="";
 		String sql="";

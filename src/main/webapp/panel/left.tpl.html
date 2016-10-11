@@ -1,45 +1,14 @@
-<nav metis-menu>
- <ul>
- 	<li ng-repeat="db in listDatabase" id="{{'li_' + db.name}}">
- 		<a href="#" id="{{db.name}}">
+<nav>
+ <ul class="tree">
+	  <li ng-repeat="db in listDatabase" id="{{'li_' + db.name}}">
+	    <a href="#" id="{{db.name}}">
  				<i class="fa fa-database"></i> 
  				&nbsp; {{db.name}}
- 		</a> 		
- 		<ul>
- 			<li>
- 				<a href="#" ng-click="expand(db.name,$event,'tables')" aria-expanded="false">
-	 				<i class="fa fa-table"></i> 
-	 				&nbsp; Table <!-- <i ng-hide="!loading" class="fa fa-circle-o-notch fa-spin"></i> -->
-		 		</a>
-		 		<ul>
- 					<li ng-if="listDbObject != null" ng-repeat="object in listDbObject">
-		 				<i class="fa fa-table"></i> 
-	 				&nbsp; {{object.OBJECT_NAME}}
-		 			</li>
-		 			<li ng-if="(listDbObject == null || listDbObject.length  == 0)">		 				
-	 					There's no table yet
-		 			</li>
-		 		</ul>
- 			</li>
- 			<li>
- 				<a href="#" ng-click="expand(db.name,$event,'views')" aria-expanded="false">
-	 				<i class="fa fa-eye"></i> 
-	 				&nbsp; View
-		 		</a>
-		 		<ul>
-		 			<li ng-if="listDbObject != null" ng-repeat="object in listDbObject">
-		 			<i class="fa fa-eye"></i> 
-	 				&nbsp; {{object.OBJECT_NAME}}
-		 			</li>
-		 			<li ng-if="(listDbObject == null || listDbObject.length  == 0)">		 				
-	 					There's no view yet
-		 			</li>		 			
-		 		</ul>
- 			</li>
- 		
- 		</ul> 		 
- 	</li>
- </ul>
+ 		</a>
+	    <ul>
+	    	<list-table db="{{db.name}}"></list-table>
+	    	<list-view db="{{db.name}}"></list-view>
+    	</ul>    
+	  </li>  
+  </ul>
 </nav>
- 
-  

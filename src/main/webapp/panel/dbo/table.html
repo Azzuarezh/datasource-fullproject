@@ -1,0 +1,12 @@
+<li bn-delegate="getListOfDbObject('{{dbName}}','TABLES')" is-open="false" is-loaded="false">
+	<a href="#">
+	<i class="fa fa-table"></i>
+		&nbsp;Tables &nbsp;
+	<i class="fa fa-spinner fa-spin" ng-show="loading"></i>
+	</a> 
+	<ul aria-expanded="false">		
+		<li ng-repeat="table in listOfObject" ng-show="listOfObject">
+			<a href="#"><i class="fa fa-table"></i>&nbsp;{{table.objectName}}</a>
+		</li>	
+	</ul>
+</li>

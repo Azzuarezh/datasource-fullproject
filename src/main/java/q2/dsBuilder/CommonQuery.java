@@ -44,7 +44,7 @@ public class CommonQuery implements CommonQueryInterface {
 
 
 	@Override
-	public String getTablesFromDb(String DBType, String DbName, String ObjectType) {
+	public String getObjectFromDb(String DBType, String DbName, String ObjectType) {
 		// TODO Auto-generated method stub		
 		switch (DBType) {
 		case LocalVariable.SQL_SERVER_DB:

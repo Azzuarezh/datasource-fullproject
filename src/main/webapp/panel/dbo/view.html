@@ -1,0 +1,8 @@
+<li bn-delegate="getListOfDbObject('{{dbName}}','VIEWS')" is-open="false" is-loaded="false">
+	<a href="#"><i class="fa fa-eye"></i>&nbsp;Views</a>
+	<ul aria-expanded="false">
+		<li ng-repeat="view in listOfObject" ng-show="listOfObject">
+			<a href="#"><i class="fa fa-eye"></i>&nbsp;{{view.objectName}}</a>
+		</li>		
+	</ul>
+</li>

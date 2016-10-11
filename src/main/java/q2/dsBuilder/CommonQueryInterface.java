@@ -5,8 +5,8 @@ import java.util.Map;
 
 public interface CommonQueryInterface {
 
-	public String getDatabases(String DBType);
-	public String getTablesFromDb(String DBType, String DbName, String ObjectType);
-	public String getColumnsFromTable(String DBType, String DbName, String TblName);	
+	public String getDatabases(String DBType);	
+	public String getColumnsFromTable(String DBType, String DbName, String TblName);
+	public String getObjectFromDb(String DBType, String DbName, String ObjectType);	
 		
 }

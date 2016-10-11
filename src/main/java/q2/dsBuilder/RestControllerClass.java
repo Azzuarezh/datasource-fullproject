@@ -51,8 +51,8 @@ public class RestControllerClass {
 			
 	
 	
-	@RequestMapping(value="/getListOfTable")
-	public List<Map<String, Object>> getListOfTable(
+	@RequestMapping(value="/getListOfDbObject")
+	public List<Map<String, Object>> getListOfDbObject(
 			HttpSession session,
 			@RequestParam(value=LocalVariable.PARAM_DB_NAME) String DbName,
 			@RequestParam(value=LocalVariable.PARAM_OBJECT_TYPE) String type) throws SQLException{		
@@ -80,7 +80,7 @@ public class RestControllerClass {
 		System.out.println("the Db Name : " + DbName);
 		System.out.println("the database object  is : " + type);
 		
-		sql = cQy.getTablesFromDb(dbType, DbName, type);
+		sql = cQy.getObjectFromDb(dbType, DbName, type);
 		System.out.println("the sql nya : " + sql);
 		return coreConnect.getQuery_Result(sql);
 	}

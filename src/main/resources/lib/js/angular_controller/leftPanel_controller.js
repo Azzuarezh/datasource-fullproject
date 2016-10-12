@@ -122,7 +122,7 @@ app
 .directive('listTable',function($parse){
 	return{
 		restrict :'E',	
-		templateUrl : 'panel/dbo/table.html',
+		templateUrl : 'panel/dbo/table.tpl.html',
 		scope :{
 			dbName : '@db'
 		}
@@ -131,7 +131,7 @@ app
 .directive('listView',function($parse){
 	return{
 		restrict :'E',	
-		templateUrl : 'panel/dbo/view.html',
+		templateUrl : 'panel/dbo/view.tpl.html',
 		scope :{
 			dbName : '@db'
 		}

@@ -32,12 +32,12 @@
     "/*.css",
     "/*.js"
   ],
-  "version": "2.2.3",
-  "_release": "2.2.3",
+  "version": "2.2.4",
+  "_release": "2.2.4",
   "_resolution": {
     "type": "version",
-    "tag": "2.2.3",
-    "commit": "99e59525389717e16e343a537e9057a67f5d17df"
+    "tag": "2.2.4",
+    "commit": "cea364b6f9ba61d933c7ad46bcecc001e14190a1"
   },
   "_source": "https://github.com/swisnl/jQuery-contextMenu.git",
   "_target": "^2.1.1",

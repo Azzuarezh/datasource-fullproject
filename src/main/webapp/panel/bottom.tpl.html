@@ -4,6 +4,8 @@
       <uib-tab-heading>
       <i class="{{tab.icon}}"></i> {{tab.title}}
       </uib-tab-heading>
+      <div class="tab-view">
+      </div>
       <sql-view ng-show="tab.id =='sqlView'"></sql-view>
       <data-view ng-show="tab.id =='dataView'"></data-view>
       <console-view ng-show="tab.id =='consoleView'"></console-view>

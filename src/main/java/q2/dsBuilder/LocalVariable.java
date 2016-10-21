@@ -5,7 +5,8 @@ public class LocalVariable {
 	public static final String SQL_SERVER_DB ="SQLServer";
 	public static final String POSTGRESQL_DB ="PostgreSQL";
 	
-	public static final String SQL_SERVER_DRIVERCLASS= "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+	//pake yang gratisan jtds punya
+	public static final String SQL_SERVER_DRIVERCLASS= "net.sourceforge.jtds.jdbc.Driver";
 	public static final String POSTGRESQL_DRIVERCLASS= "org.postgresql.Driver";
 	
 	public static final String DEFAULT_DB = SQL_SERVER_DB;

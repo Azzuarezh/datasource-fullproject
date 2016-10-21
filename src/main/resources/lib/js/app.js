@@ -12,10 +12,12 @@ var app = angular.module('dataSourceApp',
 			 'ngResource',		 
 			 'ui.bootstrap',
 			 'ui.layout',
+			 'ngSanitize'
+			 /*
 			 'eehNavigation',
 			 'eehMetisMenu',
 			 "pascalprecht.translate",
-			 'ui.router'
+			 'ui.router'*/
 			 ]);
 
 	

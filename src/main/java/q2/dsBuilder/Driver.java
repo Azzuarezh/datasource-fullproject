@@ -16,7 +16,7 @@ public class Driver {
 		switch (DBType) {
 		case LocalVariable.SQL_SERVER_DB:
 			dsm.setDriverClassName(LocalVariable.SQL_SERVER_DRIVERCLASS);
-			dsm.setUrl(String.format("jdbc:sqlserver://%s:%d;databaseName=master", serverName, port==0?1433:port));			
+			dsm.setUrl(String.format("jdbc:jtds:sqlserver://%s:%d;databaseName=master", serverName, port==0?1433:port));			
 			break;
 		case LocalVariable.POSTGRESQL_DB:
 			dsm.setDriverClassName(LocalVariable.POSTGRESQL_DRIVERCLASS);

@@ -1,0 +1,15 @@
+<div ng-repeat="dialog in dialogs" id="{{dialog.id}}" class="modal fade modal-primary" role="dialog">
+      <div class="modal-dialog modal-primary">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          
+          <div class="modal-header modal-primary">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><i class="{{dialog.iconTitle}}"></i> {{dialog.title}}</h4>
+             </div>
+                <div class="modal-body">content {{dialog.title}}</div>
+                <div class="modal-footer">controlButton</div>
+            </div>
+        </div>
+    </div>

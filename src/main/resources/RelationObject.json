@@ -1,4 +1,5 @@
-RelationObject ={	
+RelationObject =
+{	
 	Object=[{
 	name:'tbl_a'
 	alias :'tblA'

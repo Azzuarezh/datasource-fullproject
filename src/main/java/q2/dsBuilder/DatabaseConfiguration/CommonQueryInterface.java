@@ -1,4 +1,4 @@
-package q2.dsBuilder;
+package q2.dsBuilder.DatabaseConfiguration;
 
 import java.util.List;
 import java.util.Map;

@@ -15,7 +15,7 @@ module.exports = function(grunt) {
     },
     wiredep: {    	
     	target: {
-	          	src: '../webapp/index.html', // point to your HTML file.	          
+	          	src: 'static/index.html', // point to your HTML file.	          
 	          	dependencies: true,
 	          	devDependencies : true,
 	          	ignorePath : /(.\.+\/resources\/)/ig // replace ../resouces/

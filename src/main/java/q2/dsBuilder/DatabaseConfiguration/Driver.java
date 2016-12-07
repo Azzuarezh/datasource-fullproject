@@ -1,8 +1,10 @@
-package q2.dsBuilder;
+package q2.dsBuilder.DatabaseConfiguration;
 
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
+import q2.dsBuilder.LocalVariable;
 
 public class Driver {
 

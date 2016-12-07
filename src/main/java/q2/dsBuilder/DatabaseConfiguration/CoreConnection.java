@@ -1,4 +1,4 @@
-package q2.dsBuilder;
+package q2.dsBuilder.DatabaseConfiguration;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -6,6 +6,11 @@ import java.util.Map;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 
+/**
+ * @author muhammad.thahir
+ * Class yang menghasilkan Data dari hasil query
+ * 
+ */
 public class CoreConnection {
 	
 	public String DB_Type;

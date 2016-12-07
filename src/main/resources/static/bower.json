@@ -35,7 +35,8 @@
     "metisMenu": "^2.5.2",
     "angular": "^1.5.8",
     "angular-ui-select": "^0.19.4",
-    "angular-sanitize": "^1.5.8"
+    "angular-sanitize": "^1.5.8",
+    "sockjs": "^0.3.4"
   },
   "overrides": {
     "jQuery-QueryBuilder": {
@@ -66,6 +67,9 @@
         "dist/select.js",
         "dist/select.css"
       ]
+    },
+    "sockjs": {
+      "main": "sockjs.js"
     }
   }
 }

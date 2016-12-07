@@ -1,8 +1,14 @@
-package q2.dsBuilder;
+package q2.dsBuilder.DatabaseConfiguration;
 
 import java.util.List;
 import java.util.Map;
 
+import q2.dsBuilder.LocalVariable;
+
+/**
+ * @author muhammad.thahir
+ * Class yang menghasilkan Query-Query umum pada sql syntax (select db, select table, column etc.)
+ */
 public class CommonQuery implements CommonQueryInterface {
 
 	private String query;

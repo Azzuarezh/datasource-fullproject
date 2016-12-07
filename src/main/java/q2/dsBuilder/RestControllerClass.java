@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import q2.dsBuilder.DatabaseConfiguration.CommonQuery;
+import q2.dsBuilder.DatabaseConfiguration.CoreConnection;
+
 @RestController
 public class RestControllerClass {
 	private CommonQuery cQy = new CommonQuery();

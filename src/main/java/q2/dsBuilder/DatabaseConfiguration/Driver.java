@@ -1,5 +1,7 @@
 package q2.dsBuilder.DatabaseConfiguration;
 
+import java.sql.SQLException;
+
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -34,4 +36,9 @@ public class Driver {
 	public DataSource getDataSource() {
 		return dataSource;
 	}
+	
+	public boolean checkConnectionIsOpen() throws SQLException{
+		return !dataSource.getConnection().isClosed();
+	}
+	
 }

@@ -11,7 +11,11 @@ module.exports = function(grunt) {
     },
     watch: {
     	 files: ['bower_components/*','index.html','bower.json'],
-    	 tasks: ['wiredep']
+    	 tasks: ['wiredep'],
+    	 options:{
+    		 host: 'localhost',
+    	     port: 8080
+    	 }
     },
     wiredep: {    	
     	target: {

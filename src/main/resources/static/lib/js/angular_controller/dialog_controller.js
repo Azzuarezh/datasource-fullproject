@@ -30,30 +30,17 @@ directive('dialogContent',function(){
 		}
 	}
 }).
-directive('dialogConnect',function(){
+directive('dialogContentBody',function(){
 	return {
-		restrict :'AE',
-		templateUrl : 'panel/dialog/content/connect.tpl.html',
+		restrict :'AE',		
 		scope :{
 			id : '@'
-		}
-	}
-}).
-directive('dialogExport',function(){
-	return {
-		restrict :'AE',
-		templateUrl : 'panel/dialog/content/export.tpl.html',
-		scope :{
-			id : '@'
-		}
-	}
-}).
-directive('dialogSort',function(){
-	return {
-		restrict :'AE',
-		templateUrl : 'panel/dialog/content/sort.tpl.html',
-		scope :{
-			id : '@'
-		}
+		},link: function(scope, element, attrs) {
+	           scope.getContentUrl = function() {
+	        	   	console.log(scope.id);
+	                return 'panel/dialog/content/' + scope.id + '.tpl.html';
+	           }
+	       },
+	       template: '<div ng-include="getContentUrl()"></div>'
 	}
 })

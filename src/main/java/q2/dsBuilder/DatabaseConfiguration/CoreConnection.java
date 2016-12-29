@@ -17,7 +17,13 @@ public class CoreConnection {
 	private Driver driver;
 	private JdbcTemplate jdbcTemplate;
 	public List<Map<String,Object>> Query_Result;
+	public boolean connectionOpen;
 	
+	public boolean isConnectionOpen() throws SQLException {
+		return checkConnectionOpen();
+	}
+
+
 	public CoreConnection(String serverName,String userName, String pass, int port,String dB_Type) {		
 		DB_Type = dB_Type;
 		this.driver = new Driver(serverName, userName, pass, dB_Type, port);
@@ -36,6 +42,9 @@ public class CoreConnection {
 		Query_Result = jdbcTemplate.queryForList(sql);
 		return Query_Result;
 		
+	}
+	public boolean checkConnectionOpen() throws SQLException{
+		return driver.checkConnectionIsOpen();
 	}
 			
 

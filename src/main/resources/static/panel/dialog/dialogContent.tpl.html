@@ -1,4 +1,2 @@
-{{contentId}}
-<!-- <dialog-connect ng-show="{{contentId == 'connect'|| false}}"></dialog-connect>
-<dialog-export ng-show="{{contentId == 'export'|| false}}"></dialog-export>
-<dialog-sort ng-show="{{contentId == 'sort'|| false}}"></dialog-sort> -->
+test {{contentId}}
+<dialog-content-body id="{{contentId}}" ng-include="getContentUrl()"></dialog-content-body>
